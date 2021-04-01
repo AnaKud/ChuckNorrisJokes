@@ -34,7 +34,7 @@ ____
 ## Interface screens 
 Launching Screen - Initial screen to display jokes - Inputting count of jokes 
 
-![alt text](https://c.radikal.ru/c14/2102/9f/10db3051bc0at.jpg)  ![alt text](https://a.radikal.ru/a13/2102/75/4b90cf38a0e4t.jpg) ![alt text](https://a.radikal.ru/a18/2102/9d/79b2a9cdc3d6t.jpg) 
+ ![alt text](https://a.radikal.ru/a13/2102/75/4b90cf38a0e4t.jpg) ![alt text](https://a.radikal.ru/a18/2102/9d/79b2a9cdc3d6t.jpg) 
 
 Displayed jokes - Second screen with browser
 
