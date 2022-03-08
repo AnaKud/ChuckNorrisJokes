@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="g3G-Eg-7QI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="g3G-Eg-7QI">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -35,7 +36,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="API" id="DW9-M0-hq8"/>
                     <connections>
-                        <outlet property="webKitAPI" destination="TQd-Bl-1LU" id="bId-Yi-MBN"/>
+                        <outlet property="webView" destination="TQd-Bl-1LU" id="bId-Yi-MBN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TxX-Oa-5di" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -45,7 +46,7 @@
         <!--Jokes-->
         <scene sceneID="f67-Kn-oef">
             <objects>
-                <viewController title="Jokes" id="ekH-vn-RTI" customClass="ViewControllerJokesTable" customModule="ChuckNorrisJokes" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Jokes" id="ekH-vn-RTI" customClass="JokesTableViewController" customModule="ChuckNorrisJokes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Gld-Le-ysy">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -59,14 +60,14 @@
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="JokeCell" id="Jbi-9J-WYp" customClass="JokeTableViewCell" customModule="ChuckNorrisJokes" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="41.5"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="41.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Jbi-9J-WYp" id="k5O-LJ-Vuz">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="41.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ClK-BO-iGX">
-                                                    <rect key="frame" x="20" y="10" width="374" height="21.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ClK-BO-iGX">
+                                                    <rect key="frame" x="84" y="10" width="374" height="21.5"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <nil key="textColor"/>
@@ -91,18 +92,20 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3hX-S3-Ca1">
                                 <rect key="frame" x="0.0" y="653" width="414" height="160"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Input count" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="03E-e8-hYD" userLabel="Number of jokes">
-                                        <rect key="frame" x="0.0" y="40" width="414" height="34"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Input count" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="03E-e8-hYD" userLabel="Number of jokes">
+                                        <rect key="frame" x="122" y="40" width="170" height="40"/>
+                                        <color key="backgroundColor" red="0.97254901960784312" green="0.77254901960784317" blue="0.63529411764705879" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="tintColor" red="0.12941176470588234" green="0.62352941176470589" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="414" id="8uj-yh-Jaz"/>
-                                            <constraint firstAttribute="height" constant="34" id="WQD-qi-irB"/>
+                                            <constraint firstAttribute="width" constant="170" id="8uj-yh-Jaz"/>
+                                            <constraint firstAttribute="height" constant="40" id="WQD-qi-irB"/>
                                         </constraints>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     </textField>
                                     <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O5L-uQ-pY9" userLabel="LOAD">
-                                        <rect key="frame" x="122" y="84" width="170" height="40"/>
+                                        <rect key="frame" x="122" y="90" width="170" height="40"/>
                                         <color key="backgroundColor" red="0.81568627450980391" green="0.32941176470588235" blue="0.1803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="170" id="Mtf-Cf-eJS"/>
@@ -113,7 +116,7 @@
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="loadJokesButton:" destination="ekH-vn-RTI" eventType="touchUpInside" id="iPi-XR-nx3"/>
+                                            <action selector="loadJokesButtonTapped:" destination="ekH-vn-RTI" eventType="touchUpInside" id="dee-Ep-3VQ"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -144,7 +147,7 @@
                             <constraint firstItem="6Xx-s0-J7P" firstAttribute="width" secondItem="Gld-Le-ysy" secondAttribute="width" id="uEz-kw-IyG"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Jokes" id="p9I-nH-9gi"/>
+                    <navigationItem key="navigationItem" title="Chuck Norris Jokes" id="p9I-nH-9gi"/>
                     <connections>
                         <outlet property="headImageView" destination="Z8e-5S-Ens" id="cXx-LY-wQ6"/>
                         <outlet property="jokesCountTextField" destination="03E-e8-hYD" id="RoT-04-c61"/>
@@ -164,6 +167,7 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="G9e-zy-Zm9">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.97254901960784312" green="0.77254901960784317" blue="0.63529411764705879" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="barTintColor" red="0.97254901960784312" green="0.77254901960784317" blue="0.63529411764705879" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </tabBar>
                     <connections>
